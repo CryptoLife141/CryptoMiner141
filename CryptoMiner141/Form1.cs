@@ -7,6 +7,8 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -14,50 +16,38 @@ namespace CryptoMiner141
 {
     public partial class Form1 : Form
     {
+        public static JArray textCPUMining;
+        Thread t;
+        Thread updateApp;
+
         public Form1()
         {
             InitializeComponent();
         }
 
-        private void btn_startMining_Click(object sender, EventArgs e)
+        public void btn_startMining_Click(object sender, EventArgs e)
         {
+            //Console.WriteLine(checkedListBoxMiner.Text);
+
             foreach (object itemChecked in checkedListBoxMiner.CheckedItems)
             {
-                if (itemChecked.ToString() == "CPU Mining")
+                if (Regex.IsMatch(itemChecked.ToString(), @"\bCPU\b"))
                 {
                     System.Diagnostics.Process.Start(@"Miner\CPU\xmrig-2.6.0\Monero.bat");
 
-                    var json = new System.Net.WebClient().DownloadString("http://127.0.0.1:23333");
-
-                    //Console.WriteLine(json);
-
-                    JObject xmrjson = JObject.Parse(json);
-
-                    XMRIG xmrig = new XMRIG
-                    {
-                        Algo = (string)xmrjson["algo"],
-                        Version = (string)xmrjson["version"],
-                        Worker_id = (string)xmrjson["worker_id"],
-                        Hashrate = new XMRigHashrate
-                        {
-                            Total = (JArray)xmrjson["hashrate"]["total"] as JArray,
-                            Highest = (int)xmrjson["hashrate"]["highest"]
-                        }
-                    };
-
-                    //Console.WriteLine("Algo : " + xmrig.Algo);
-                    //Console.WriteLine("Version : " + xmrig.Version);
-                    //Console.WriteLine("Worker_ID : " + xmrig.Worker_id);
-                    Console.WriteLine("hashrate : " + xmrig.Hashrate.Total);
-                    Console.WriteLine("highest : " + xmrig.Hashrate.Highest);
-                     
+                    MyThreadHandle threadHandle = new MyThreadHandle();
+                    t = new Thread(new ThreadStart(threadHandle.ThreadLoop));
+                    t.Start();
                 }
 
-                if (itemChecked.ToString() == "GPU Mining")
+                if (Regex.IsMatch(itemChecked.ToString(), @"\bGPU\b"))
                 {
                     System.Diagnostics.Process.Start(@"Miner\GPU\ccminer\Vertcoin.bat");
                 }
             }
+
+            //updateApp = new Thread(new ThreadStart(UpdateAppThread));
+            //updateApp.Start();
         }
 
         private void btn_stopMining_Click(object sender, EventArgs e)
@@ -67,6 +57,8 @@ namespace CryptoMiner141
                 foreach(System.Diagnostics.Process Proc in System.Diagnostics.Process.GetProcessesByName("xmrig"))
                 {
                     Proc.Kill();
+                    t.Abort();
+                    //updateApp.Abort();
                 }
             }
             catch (Exception ex)
@@ -90,6 +82,25 @@ namespace CryptoMiner141
         private void checkedListBoxMiner_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        public static void UpdateAppThread()
+        {
+            while (Thread.CurrentThread.IsAlive)
+            {
+                Thread.Sleep(500);
+
+                //if (checkedListBoxMiner.Items.Cast<string>().Contains("CPU Mining"))
+                //{
+                //    int a = checkedListBoxMiner.Items.IndexOf("CPU Mining");
+                //    //string text = Encoding.Default.GetString(textCPUMining);
+                //    //Console.WriteLine(a);
+                //    //checkedListBoxMiner.Items[a] = "CPU Mining : " + textCPUMining;
+                //    //checkedListBoxMiner.Items.RemoveAt(a);
+                //    //checkedListBoxMiner.Items.Insert(a, "CPU Mining : " + textCPUMining);
+                //}
+            }
+            //checkedListBoxMiner.Items[0] = "test";
         }
     }
 }
