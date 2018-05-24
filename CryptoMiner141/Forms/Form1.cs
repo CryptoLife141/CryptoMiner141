@@ -86,7 +86,9 @@ namespace CryptoMiner141
 
         private void btn_settings_Click(object sender, EventArgs e)
         {
+            settings settingsForm = new settings();
 
+            settingsForm.ShowDialog();
         }
 
         //public static void UpdateAppThread()
