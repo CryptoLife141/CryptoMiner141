@@ -14,6 +14,7 @@ namespace CryptoMiner141
         public string Algo { get; set; }
         public string Version { get; set; }
         public string Worker_id { get; set; }
+        public string HugePages { get; set; }
         public XMRigHashrate Hashrate { get; set; }
     }
 
@@ -55,6 +56,7 @@ namespace CryptoMiner141
                     Algo = (string)xmrjson["algo"],
                     Version = (string)xmrjson["version"],
                     Worker_id = (string)xmrjson["worker_id"],
+                    HugePages = (string)xmrjson["hugepages"],
                     Hashrate = new XMRigHashrate
                     {
                         Total = (JArray)xmrjson["hashrate"]["total"] as JArray,
@@ -72,7 +74,7 @@ namespace CryptoMiner141
                     {
                         //String contains CPU
                         Console.WriteLine("Something");
-                        SetText("CPU Mining : Hashrate = " + xmrig.Hashrate.Total[0].ToString() + "H/s");
+                        SetText("CPU Mining : Hashrate = " + xmrig.Hashrate.Total[0].ToString() + "H/s, Algorithm = " + xmrig.Algo.ToString() + ", Version = " + xmrig.Version.ToString() + ", HugePages activated = " + xmrig.HugePages.ToString());
                     }
                     else
                     {

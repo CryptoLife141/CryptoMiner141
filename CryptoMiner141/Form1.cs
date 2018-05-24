@@ -18,7 +18,7 @@ namespace CryptoMiner141
     {
         public static JArray textCPUMining;
         Thread t;
-        Thread updateApp;
+        //Thread updateApp;
 
         public Form1()
         {
@@ -33,7 +33,7 @@ namespace CryptoMiner141
             {
                 if (Regex.IsMatch(itemChecked.ToString(), @"\bCPU\b"))
                 {
-                    System.Diagnostics.Process.Start(@"Miner\CPU\xmrig-2.6.0\Monero.bat");
+                    System.Diagnostics.Process.Start(@"Miner\CPU\xmrig\Monero.bat");
 
                     MyThreadHandle threadHandle = new MyThreadHandle();
                     t = new Thread(new ThreadStart(threadHandle.ThreadLoop));
@@ -84,23 +84,28 @@ namespace CryptoMiner141
 
         }
 
-        public static void UpdateAppThread()
+        private void btn_settings_Click(object sender, EventArgs e)
         {
-            while (Thread.CurrentThread.IsAlive)
-            {
-                Thread.Sleep(500);
 
-                //if (checkedListBoxMiner.Items.Cast<string>().Contains("CPU Mining"))
-                //{
-                //    int a = checkedListBoxMiner.Items.IndexOf("CPU Mining");
-                //    //string text = Encoding.Default.GetString(textCPUMining);
-                //    //Console.WriteLine(a);
-                //    //checkedListBoxMiner.Items[a] = "CPU Mining : " + textCPUMining;
-                //    //checkedListBoxMiner.Items.RemoveAt(a);
-                //    //checkedListBoxMiner.Items.Insert(a, "CPU Mining : " + textCPUMining);
-                //}
-            }
-            //checkedListBoxMiner.Items[0] = "test";
         }
+
+        //public static void UpdateAppThread()
+        //{
+        //    while (Thread.CurrentThread.IsAlive)
+        //    {
+        //        Thread.Sleep(500);
+
+        //        //if (checkedListBoxMiner.Items.Cast<string>().Contains("CPU Mining"))
+        //        //{
+        //        //    int a = checkedListBoxMiner.Items.IndexOf("CPU Mining");
+        //        //    //string text = Encoding.Default.GetString(textCPUMining);
+        //        //    //Console.WriteLine(a);
+        //        //    //checkedListBoxMiner.Items[a] = "CPU Mining : " + textCPUMining;
+        //        //    //checkedListBoxMiner.Items.RemoveAt(a);
+        //        //    //checkedListBoxMiner.Items.Insert(a, "CPU Mining : " + textCPUMining);
+        //        //}
+        //    }
+        //    //checkedListBoxMiner.Items[0] = "test";
+        //}
     }
 }
