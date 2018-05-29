@@ -1,0 +1,31 @@
+{
+  "algo": "cryptonight",
+  "av": 0,
+  "background": false,
+  "colors": true,
+  "cpu-affinity": null,
+  "cpu-priority": null,
+  "donate-level": 1,
+  "log-file": null,
+  "max-cpu-usage": 100,
+  "print-time": 60,
+  "retries": 5,
+  "retry-pause": 5,
+  "safe": false,
+  "threads": null,
+  "pools": [
+    {
+      "url": "",
+      "user": "",
+      "pass": "",
+      "keepalive": true,
+      "nicehash": false,
+      "variant": -1
+    }
+  ],
+  "api": {
+    "port": 23333,
+    "access-token": null,
+    "worker-id": null
+  }
+}

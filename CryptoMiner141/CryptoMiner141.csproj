@@ -116,6 +116,9 @@
       <DependentUpon>Form1.cs</DependentUpon>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\GPU_settings.resx">
+      <DependentUpon>GPU_settings.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -129,22 +132,34 @@
       <DependentUpon>settings.cs</DependentUpon>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
-    <None Include="Miner\CPU\xmrig\config.json">
+    <None Include="Miner\CPU\xmrig\config_vierge.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Miner\CPU\xmrig\config_XMR.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="Miner\CPU\xmrig\Monero.bat">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="Miner\GPU\ccminer\bytecoin.cmd">
+    <None Include="Miner\GPU\ccminer\config_TZC.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="Miner\GPU\ccminer\ccminer.conf">
+    <None Include="Miner\GPU\ccminer\config_VTC.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="Miner\GPU\ccminer\Trezarcoin.cmd">
+    <None Include="Miner\GPU\ccminer\config_BTCP.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="Miner\GPU\ccminer\Vertcoin.bat">
+    <None Include="Miner\GPU\ccminer\config_vierge.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Miner\GPU\ccminer\BTCP.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Miner\GPU\ccminer\TZC.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Miner\GPU\ccminer\VTC.bat">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="packages.config" />

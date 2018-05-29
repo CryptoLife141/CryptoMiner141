@@ -67,19 +67,19 @@ namespace CryptoMiner141
                 //Console.WriteLine("Algo : " + xmrig.Algo);
                 //Console.WriteLine("Version : " + xmrig.Version);
                 //Console.WriteLine("Worker_ID : " + xmrig.Worker_id);
-                Console.WriteLine("hashrate : " + xmrig.Hashrate.Total);
+                //Console.WriteLine("hashrate : " + xmrig.Hashrate.Total);
                 for (int i = 0; i < Form1.checkedListBoxMiner.Items.Count; i++)
                 {
                     if (Regex.IsMatch(Form1.checkedListBoxMiner.Items[i].ToString(), @"\bCPU\b"))
                     {
                         //String contains CPU
-                        Console.WriteLine("Something");
+                        //Console.WriteLine("Something");
                         SetText("CPU Mining : Hashrate = " + xmrig.Hashrate.Total[0].ToString() + "H/s, Algorithm = " + xmrig.Algo.ToString() + ", Version = " + xmrig.Version.ToString() + ", HugePages activated = " + xmrig.HugePages.ToString());
                     }
                     else
                     {
                         //String not contains CPU
-                        Console.WriteLine("Nothing");
+                        //Console.WriteLine("Nothing");
                     }
                 }
             }

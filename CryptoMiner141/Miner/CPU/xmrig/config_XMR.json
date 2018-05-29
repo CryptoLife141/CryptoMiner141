@@ -1,0 +1,31 @@
+{
+  "algo": "cryptonight",
+  "av": 0,
+  "background": false,
+  "colors": true,
+  "cpu-affinity": null,
+  "cpu-priority": null,
+  "donate-level": 1,
+  "log-file": null,
+  "max-cpu-usage": 100,
+  "print-time": 60,
+  "retries": 5,
+  "retry-pause": 5,
+  "safe": false,
+  "threads": null,
+  "pools": [
+    {
+      "url": "gulf.moneroocean.stream:10001",
+      "user": "44cMHtrfrn49HW7W2eA9wohbzV1wQBTvvhsHMvRS42vYaSvkGVCqfusNJCw5HjebM8biTKDX72G6mfj6BeQY2pu6AFRrrye",
+      "pass": "x",
+      "keepalive": true,
+      "nicehash": false,
+      "variant": -1
+    }
+  ],
+  "api": {
+    "port": 23333,
+    "access-token": null,
+    "worker-id": null
+  }
+}

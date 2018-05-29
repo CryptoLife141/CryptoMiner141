@@ -42,7 +42,7 @@ namespace CryptoMiner141
 
                 if (Regex.IsMatch(itemChecked.ToString(), @"\bGPU\b"))
                 {
-                    System.Diagnostics.Process.Start(@"Miner\GPU\ccminer\Vertcoin.bat");
+                    System.Diagnostics.Process.Start(@"Miner\GPU\ccminer\BTCP.bat");
                 }
             }
 

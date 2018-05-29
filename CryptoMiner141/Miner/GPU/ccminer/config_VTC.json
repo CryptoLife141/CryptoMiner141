@@ -1,0 +1,17 @@
+{
+	"api-bind": "127.0.0.1:4068",
+	"statsavg": 20,
+
+	"quiet" : false,
+	"debug" : false,
+	"protocol" : false,
+	"cpu-priority" : 3,
+
+	"algo" : "lyra2v2",
+
+	"launch-config" : "32x16",
+
+	"url" : "",
+	"user" : "",
+	"pass" : ""
+}
